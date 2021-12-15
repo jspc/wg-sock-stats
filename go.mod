@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/BurntSushi/toml v0.4.1
+	github.com/dustin/go-humanize v1.0.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/oschwald/geoip2-golang v1.5.0
 	go.uber.org/zap v1.19.1

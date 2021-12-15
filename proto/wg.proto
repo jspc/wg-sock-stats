@@ -23,7 +23,12 @@ message Statistics {
   string publicKey = 3;
   double sent_bytes = 4;
   double received_bytes = 5;
-  repeated Peer peer = 6;
+
+  // The following are human readable figures
+  string sent = 6;
+  string received = 7;
+
+  repeated Peer peer = 8;
 }
 
 // Peer represents an individual peer connection.
@@ -39,11 +44,15 @@ message Peer {
   double sent_bytes = 5;
   double received_bytes = 6;
 
+  // The following are human readable figures
+  string sent = 7;
+  string received = 8;
+
   // The following are enhanced versions of the above
   // and set when the service is explicitly set to
   // form them
-  Owner owner = 7;
-  Address addr = 8;
+  Owner owner = 9;
+  Address addr = 10;
 }
 
 message Owner {

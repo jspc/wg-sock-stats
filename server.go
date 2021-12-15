@@ -11,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/dustin/go-humanize"
 	"github.com/jspc/wg-sock-stats/stats"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -72,7 +73,9 @@ func (s Server) Get(ctx context.Context, in *stats.Statistics) (*stats.Statistic
 				AllowedIPs:    f[4],
 				Handshake:     timestamppb.New(toTime(f[5])),
 				SentBytes:     peerSent,
+				Sent:          humanize.Bytes(uint64(peerSent)),
 				ReceivedBytes: peerReceived,
+				Received:      humanize.Bytes(uint64(peerReceived)),
 			}
 
 			if s.config.CheckPTR {
@@ -94,6 +97,12 @@ func (s Server) Get(ctx context.Context, in *stats.Statistics) (*stats.Statistic
 
 		line++
 	}
+
+	in.SentBytes = sent
+	in.Sent = humanize.Bytes(uint64(sent))
+
+	in.ReceivedBytes = received
+	in.Received = humanize.Bytes(uint64(received))
 
 	return in, nil
 }
