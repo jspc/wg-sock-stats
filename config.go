@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/BurntSushi/toml"
+)
+
 type Owner struct {
 	Name  string `toml:"name"`
 	Email string `toml:"email"`
@@ -25,4 +29,10 @@ type Config struct {
 	// Owners maps a public key to name and email address. See MapOwners
 	// for more information, including caveats
 	Owners map[string]Owner `toml:"owners"`
+}
+
+func ParseConfig(fn string) (c Config, err error) {
+	_, err = toml.DecodeFile(fn, &c)
+
+	return
 }

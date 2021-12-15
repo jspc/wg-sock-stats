@@ -40,11 +40,23 @@ message Peer {
   double received_bytes = 6;
 
   // The following are enhanced versions of the above
+  // and set when the service is explicitly set to
+  // form them
   Owner owner = 7;
-  string ptr = 8;
+  Address addr = 8;
 }
 
 message Owner {
   string name = 1;
   string email = 2;
+}
+
+message Address {
+  string addr = 1;
+  string ptr = 2;
+  double long = 3;
+  double lat = 4;
+  string city = 5;
+  string country = 6;
+  string isp = 7;
 }

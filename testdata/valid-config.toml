@@ -1,0 +1,20 @@
+# This is a valid config for wg-sock-stats
+
+# Try to turn client addresses to PTRs to aid readability
+check_ptr = true
+
+# Return the owner of a public key, where available
+#
+# Note: unknown owners (if they're not in the list below)
+# will be returned without this data set- which is a way
+# of returning *some* owners, and not others
+map_owners = true
+
+[owners]
+[owners."IlzwX7BAAY1Dll7P4VLVmHUcA/h7mXw="]
+name = "Bill Sticklebricks"
+email = "bs@example.com"
+
+[owners."adsdggfewgrw3rDDdsdUc3/hdmaw="]
+name = "Fatima Fuzzy-Felt"
+email = "fff@example.com"
