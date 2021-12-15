@@ -29,6 +29,11 @@ message Statistics {
   string received = 7;
 
   repeated Peer peer = 8;
+
+  // The following are useful for pinpointing the
+  // location of this server
+  double long = 9;
+  double lat = 10;
 }
 
 // Peer represents an individual peer connection.

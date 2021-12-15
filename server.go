@@ -59,6 +59,8 @@ func (s Server) Get(ctx context.Context, in *stats.Statistics) (*stats.Statistic
 			in.Address = fmt.Sprintf(":%s", f[3])
 			in.PublicKey = f[2]
 			in.Datetime = timestamppb.New(startTime)
+			in.Long = s.config.Longitude
+			in.Lat = s.config.Latitude
 
 		default:
 			peerSent := toFloat(f[6])

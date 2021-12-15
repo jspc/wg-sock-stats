@@ -10,6 +10,12 @@ type Owner struct {
 }
 
 type Config struct {
+	// Longitude and Latitude point (respectively)
+	// to the rough longitude and latitude
+	// of this server. Leaving it blank is fine
+	Longitude float64 `toml:"long"`
+	Latitude  float64 `toml:"lat"`
+
 	// CheckPTR governs whether we lookup a peer's IP
 	// to provide some kind of human readable information
 	CheckPTR bool `toml:"check_ptr"`
